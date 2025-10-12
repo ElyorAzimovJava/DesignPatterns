@@ -5,6 +5,9 @@ public class SingletonThreadSafe {
 
     private SingletonThreadSafe() {
         System.out.println("The object is created");
+        if(instance != null){
+            throw new IllegalStateException("The object is already created");
+        }
     }
 
     public static SingletonThreadSafe getInstance() {
